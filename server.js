@@ -3,12 +3,15 @@ var http = require('http');
 var fileSystem = require('fs');
 var express = require("express");
 const bodyParser = require("body-parser");
-const router = require("./router");
-// var mongoose = require("mongoose");
+const routes = require("./routes");
+const morgan = require("morgan");
+// var mongoose = require("mongoose")
+
+const app = express();
 
 app.use(morgan('combined'))
 app.use(bodyParser.json({ type: "*/*" }))
-router(app)
+routes(app)
 
 const port = 8080
 
